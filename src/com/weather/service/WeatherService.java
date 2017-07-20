@@ -78,7 +78,7 @@ public class WeatherService {
     public Item getItemList(String date, String hour) throws IOException, ParserConfigurationException, SAXException {
         String xml = this.xmlDownload(date, hour);
         Item item = new Item();
-        // xml ÆÄ½Ì -> List<Item>
+        // xml ï¿½Ä½ï¿½ -> List<Item>
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 		DocumentBuilder builder = factory.newDocumentBuilder();
 		Document doc = builder.parse(new ByteArrayInputStream(xml.getBytes("UTF-8")));
@@ -95,10 +95,10 @@ public class WeatherService {
     	item.setTemp1hour(obsrValue);
     } else if(category.equals("SKY")) {
     	item.setSky(obsrValue);
-    } else if(category.getClass().equals("RN1")) {
-    	item.setSky(obsrValue);
+    } else if(category.equals("RN1")) {
+    	item.setRainStat(obsrValue);
     } else if(category.equals("REH")) {
-    	item.setSky(obsrValue);
+    	item.setHumidity(obsrValue);
     } else {
     	continue;
     }

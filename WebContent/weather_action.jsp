@@ -17,10 +17,12 @@ System.out.println("item : "+item);
 
 String tempur = item.getTemp1hour();
 String sky = item.getSky();
+String rainStat = item.getRainStat();
 
 System.out.println("tempur : "+tempur+" weather_action.jsp");
 System.out.println("sky : "+sky+" weather_action.jsp");
+System.out.println("rainStat : "+rainStat+" weather_action.jsp");
 
 
-pageContext.forward("./weather_widget.jsp?tempur="+tempur+"&sky="+sky);
+pageContext.forward("./weather_widget.jsp?tempur="+tempur+"&sky="+sky+"&rainStat="+rainStat);
 %>
